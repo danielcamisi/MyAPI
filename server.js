@@ -11,6 +11,7 @@ const { errorHandler } = require('./middlewares/servMiddlewares');
 
 //Middleware - fala para o express que estamos trabalhando com o JSON
 app.use(express.json());
+app.options('*', cors());
 app.use(cors());
 app.use('/feedbacks', feedRoutes);
 app.use(errorHandler);
