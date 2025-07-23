@@ -1,8 +1,8 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-mongoose.set("strictQuery", true);
+mongoose.set('strictQuery', true);
 
-require("dotenv").config();
+require('dotenv').config();
 //require - nativo JS
 
 //Credenciais do DB
@@ -19,10 +19,9 @@ async function main() {
 
   // Sempre ao usar o ASYNC - O ERRO DEVE SER TRATADO!!!!!!!
 
-  console.log("Conectou o banco de dados!");
-
+  console.log('Conectou o banco de dados!');
 }
 
-main().catch((err)=> console.log(err));
+main().catch((err) => console.log(err));
 
 module.exports = main;

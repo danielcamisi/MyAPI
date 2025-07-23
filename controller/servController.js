@@ -1,18 +1,22 @@
-const feed = require("../models/models")
+const feed = require('../models/models');
 
-exports.create = async (req, res) => {
-  const { nameProject } = req.body;
-  const { WhoSendFeedback } = req.body;
-  const { desc } = req.body;
-  if (!nameProject || !desc) {
-    return res.status(400).json({ erro: "preenchda todos os campos" });
-  }
+// Criar novo feedback
+exports.create = async (req, res, next) => {
   try {
-    const newFeedback = new feed({ nameProject, WhoSendFeedback, desc});
-
+    const newFeedback = new feed(req.body);
     await newFeedback.save();
     res.status(201).json(newFeedback);
   } catch (error) {
-    res.status(500).json({ erro: "Erro ao incluir a tarefa" });
+    next(error);
+  }
+};
+
+// Listar todos os feedbacks
+exports.getAll = async (req, res, next) => {
+  try {
+    const feedbacks = await feed.find();
+    res.status(200).json(feedbacks);
+  } catch (error) {
+    next(error);
   }
 };
