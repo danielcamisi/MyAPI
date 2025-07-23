@@ -12,7 +12,7 @@ const { errorHandler } = require('./middlewares/servMiddlewares');
 //Middleware - fala para o express que estamos trabalhando com o JSON
 app.use(express.json());
 app.use(cors({
-    origin: process.env.DATABASE_URL,
+    origin: '*',
     credentials: false,
     methods: ['POST'],
     allowedHeaders: ['Content-Type', 'Authorization'],
