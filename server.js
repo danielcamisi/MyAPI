@@ -4,7 +4,7 @@ const feed = require('./models/models');
 const feedRoutes = require('./routes/servRoutes');
 const app = express();
 require('dotenv').config();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 const cors = require('cors');
 require('./config/db');
 const { errorHandler } = require('./middlewares/servMiddlewares');
