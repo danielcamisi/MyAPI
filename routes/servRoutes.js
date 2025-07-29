@@ -8,6 +8,6 @@ const router = express.Router();
 router.get('/', servController.getAll);
 
 // POST /feedbacks - criar novo feedback
-router.post('/', validateFeedback, servController.create);
+router.post('/feedbacks', validateFeedback, servController.create);
 
 module.exports = router;
